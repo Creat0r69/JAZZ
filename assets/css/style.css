@@ -1,0 +1,1025 @@
+@font-face {
+    font-family: "porky";
+    src:
+        url("../fonts/PORKH.TTF");
+    font-weight: bold;
+}
+
+@font-face {
+    font-family: "porky";
+    src:
+        url("../fonts/PORKYS.TTF");
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary-clr: #351920;
+    --secondary-clr: #AD9ACE;
+    --bg-clr: #FFFCEF;
+}
+
+body {
+    color: #151E25;
+    font-family: "Poppins", sans-serif;
+    background: #fff;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: "porky", sans-serif;
+}
+
+html {
+    scroll-padding-top: 100px;
+}
+
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #ccc;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #351920;
+}
+
+::selection {
+    background: #351920;
+    color: #fff;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    margin: 0;
+    padding: 0;
+}
+
+ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+a,
+.nav-link {
+    text-decoration: none;
+    transition: 0.2s linear;
+}
+
+.primary-btn {
+    font-size: 20px;
+    font-weight: 600;
+    padding: 14px 42px;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    border-radius: 10px;
+    color: var(--primary-clr);
+    border: 1px solid var(--primary-clr);
+    transition: 0.2s linear;
+    background-color: #FFDC36;
+    text-transform: uppercase;
+}
+
+header .primary-btn {
+    font-size: 24px;
+    padding: 11px 34px;
+}
+
+.title-group {
+    margin-bottom: 60px;
+}
+
+.inner-gap {
+    padding: 140px 0;
+}
+
+.section-title {
+    font-size: 48px;
+    margin: 0 0 16px;
+    color: var(--primary-clr);
+    text-transform: capitalize;
+}
+
+.section-title span {
+    color: var(--secondary-clr);
+}
+
+.description {
+    font-size: 18px;
+    color: #151E25;
+    line-height: 150%;
+    text-transform: capitalize;
+}
+
+p {
+    font-size: 20px;
+    line-height: 1.45;
+    color: #505050;
+    text-transform: capitalize;
+    margin: 0;
+    padding: 0;
+}
+
+/* loader */
+.loader-wrapper {
+    width: 100%;
+    z-index: 9999;
+    height: 100vh;
+    display: flex;
+}
+
+.loader {
+    width: 50px;
+    aspect-ratio: 1;
+    display: grid;
+    border: 4px solid #0000;
+    border-radius: 50%;
+    border-color: #ccc #0000;
+    animation: l16 1s infinite linear;
+}
+
+.loader::before,
+.loader::after {
+    content: "";
+    grid-area: 1/1;
+    margin: 2px;
+    border: inherit;
+    border-radius: 50%;
+}
+
+.loader::before {
+    border-color: #FFE172 #0000;
+    animation: inherit;
+    animation-duration: .5s;
+    animation-direction: reverse;
+}
+
+.loader::after {
+    margin: 8px;
+}
+
+@keyframes l16 {
+    100% {
+        transform: rotate(1turn)
+    }
+}
+
+/* Header */
+header {
+    position: sticky;
+    width: 100%;
+    top: 0;
+    z-index: 999;
+    padding: 20px 0;
+    transition: 0.2s linear;
+    background-color: var(--primary-clr);
+}
+
+header.fixed {
+    background-color: var(--primary-clr);
+    position: sticky;
+    box-shadow: 0 0 4px #ffffff6b;
+}
+
+.navbar-collapse {
+    flex-grow: 0;
+}
+
+.navbar {
+    padding: 0;
+    position: relative;
+}
+
+#navbar-right .navbar-nav {
+    gap: 20px;
+}
+
+#navbar-right .navbar-nav .nav-link {
+    font-size: 18px;
+    font-weight: 600;
+    color: #fff;
+    padding: 10px 20px;
+    text-transform: capitalize;
+}
+
+#navbar-right .navbar-nav .nav-link:focus,
+#navbar-right .navbar-nav .nav-link:hover,
+#navbar-right .navbar-nav .nav-link.active {
+    color: #fff;
+}
+
+.toggle-menu-icon {
+    width: 24px;
+    height: 20px;
+    display: inline-block;
+    position: relative;
+    margin: 0;
+    transform: rotate(0deg);
+    transition: .5s ease-in-out;
+    cursor: pointer;
+}
+
+.toggle-menu-icon span {
+    display: block;
+    position: absolute;
+    height: 3px;
+    width: 100%;
+    border-radius: 9px;
+    opacity: 1;
+    left: 0;
+    transform: rotate(0deg);
+    transition: .25s ease-in-out;
+    background: #fff;
+}
+
+.toggle-menu-icon span:nth-child(1) {
+    top: 2px;
+}
+
+.toggle-menu-icon span:nth-child(2),
+.toggle-menu-icon span:nth-child(3) {
+    top: 10px;
+}
+
+.toggle-menu-icon span:nth-child(4) {
+    top: 18px;
+}
+
+.toggle-menu-icon.open span:nth-child(1) {
+    top: 11px;
+    width: 0%;
+    left: 50%;
+}
+
+.toggle-menu-icon.open span:nth-child(2) {
+    transform: rotate(45deg);
+}
+
+.toggle-menu-icon.open span:nth-child(3) {
+    transform: rotate(-45deg);
+}
+
+.toggle-menu-icon.open span:nth-child(4) {
+    top: 11px;
+    width: 0%;
+    left: 50%;
+}
+
+.navbar-toggler:focus,
+button:focus {
+    box-shadow: none;
+}
+
+/* Banner */
+.banner {
+    position: relative;
+    background: #FFFDEF;
+    padding: 150px 0 120px;
+}
+
+.banner h1 {
+    font-size: 70px;
+    margin: 0 0 16px;
+    line-height: 1.3;
+    letter-spacing: 2.8px;
+    color: #151E25;
+    text-transform: capitalize;
+}
+
+.banner h1 span {
+    color: var(--secondary-clr);
+}
+
+.banner p {
+    max-width: 753px;
+    margin-bottom: 40px;
+    color: #505050;
+}
+
+/* counter */
+.counter {
+    background-color: var(--primary-clr);
+    padding: 67px 0;
+    text-align: center;
+}
+
+.counter h3 {
+    font-size: 70px;
+    line-height: 1.3;
+    letter-spacing: 2.8px;
+    color: #fff;
+    margin-bottom: 4px;
+}
+
+.counter p {
+    font-size: 24px;
+    line-height: 1.3;
+    letter-spacing: 0.96px;
+    color: #fff;
+}
+
+/* About */
+.about {
+    background-color: var(--bg-clr);
+    position: relative;
+    padding: 135px 0;
+}
+
+.about-left h4 {
+    font-size: 32px;
+    font-weight: 600;
+    color: #151E25;
+}
+
+.social-media a {
+    display: grid;
+    place-content: center;
+    width: 48px;
+    font-size: 24px;
+    color: #fff;
+    height: 48px;
+    border-radius: 50%;
+    border: 1.6px solid #fff;
+}
+
+.about-left .social-media a:hover {
+    background: #151E25;
+    color: #fff;
+}
+
+/* Why Buy */
+
+.why-coin-card {
+    height: 100%;
+    padding: 30px;
+    border-radius: 10px;
+    background-color: #351920;
+    color: #fff;
+    border: 3px solid transparent;
+    transition: 0.2s linear;
+}
+
+.why-coin-card:hover {
+    border-color: #ffdc36;
+}
+
+.why-coin-card .why-coin-img {
+    text-align: right;
+}
+
+.why-coin-card h3 {
+    font-size: 30px;
+    letter-spacing: 0.9px;
+    margin-bottom: 8px;
+}
+
+/* Explore */
+.explore {
+    background-color: var(--bg-clr);
+}
+
+.explore-card-wrapper {
+    padding: 12px;
+    aspect-ratio: 1/1;
+    position: relative;
+    border-radius: 50%;
+    margin: 0 auto;
+    max-width: 300px;
+}
+
+.explore-card {
+    height: 100%;
+    width: 100%;
+    background-image: url('../images/explore-card-bg.png');
+    background-size: cover;
+    display: grid;
+    place-content: center;
+    text-align: center;
+    background-color: #fff;
+    border-radius: 50%;
+    position: relative;
+    overflow: hidden;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+.explore-card h3 {
+    font-size: 48px;
+    color: var(--secondary-clr);
+}
+
+progress[value] {
+    --background: conic-gradient(#351920 var(--p), #FFFCEF 0);
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    border: none;
+    position: absolute;
+    inset: 0;
+    height: 100%;
+    width: 100%;
+    border-radius: 50%;
+    overflow: hidden;
+    background: var(--background);
+    -webkit-mask: radial-gradient(#0000 59%, #000 60% 70%, #0000 71%)
+}
+
+progress[value]::-webkit-progress-bar {
+    background: var(--background);
+}
+
+progress[value]::-webkit-progress-value {
+    background: #0000;
+}
+
+progress[value]::-moz-progress-bar {
+    background: #0000;
+}
+
+/* Hot To Buy */
+.how-to-buy {
+    background-image: url('../images/how-buy-bg.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.buy-card {
+    position: relative;
+    padding-left: 62px;
+}
+
+.buy-card-in {
+    position: relative;
+    padding: 30px 60px 42px 110px;
+    border-radius: 10px;
+    border: solid 4px #07adfc;
+}
+
+.buy-step {
+    display: block;
+    font-size: 24px;
+    font-weight: 600;
+    line-height: 1.8;
+    color: #07adfc;
+    margin-bottom: 45px;
+    text-align: right;
+    text-transform: capitalize;
+}
+
+.buy-card p {
+    font-size: 18px;
+    color: #505050;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.buy-card h3 {
+    margin-bottom: 8px;
+}
+
+.buy-img {
+    width: 140px;
+    height: 140px;
+    border-radius: 20px;
+    border: 10px solid #fff;
+    background-color: #07adfc;
+    display: grid;
+    place-content: center;
+    position: absolute;
+    left: 0;
+    bottom: 44px;
+    z-index: 9;
+}
+
+.buy-card-2 .buy-img {
+    background-color: #001A62;
+}
+
+.buy-card-3 .buy-img {
+    background-color: #F87309;
+}
+
+.buy-card-4 .buy-img {
+    background-color: #FD0547;
+}
+
+.buy-card-2 .buy-step {
+    color: #001A62;
+}
+
+.buy-card-3 .buy-step {
+    color: #F87309;
+}
+
+.buy-card-4 .buy-step {
+    color: #FD0547;
+}
+
+.buy-card-2 .buy-card-in {
+    border-color: #001A62;
+}
+
+.buy-card-3 .buy-card-in {
+    border-color: #F87309;
+}
+
+.buy-card-4 .buy-card-in {
+    border-color: #FD0547;
+}
+
+/* Footer */
+footer {
+    background-color: #351920;
+    color: #fff;
+}
+
+.footer-top {
+    border-bottom: 1px solid #fff;
+    padding: 130px 0 60px;
+    position: relative;
+}
+
+.footer-menu {
+    gap: 20px;
+}
+
+.footer-menu li a {
+    display: inline-block;
+    font-size: 18px;
+    line-height: 180%;
+    font-weight: 500;
+    padding: 10px 10px;
+    color: #fff;
+    text-transform: uppercase;
+}
+
+.footer-top p {
+    margin-top: 40px;
+}
+
+.footer-bottom {
+    padding: 40px 0;
+}
+
+.footer-bottom p {
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 180%;
+    color: #fff;
+}
+
+/* Responsive CSS */
+
+@media (min-width: 1400px) {
+    .counter .col-xxl-2 {
+        width: 20%;
+    }
+}
+
+@media (min-width: 1500px) {
+    .container {
+        max-width: 1464px;
+    }
+}
+
+@media (min-width: 1700px) {
+    .container {
+        max-width: 1668px;
+    }
+}
+
+@media (max-width: 1500px) {
+    .banner h1 {
+        font-size: 56px;
+    }
+
+    .counter p {
+        font-size: 22px;
+    }
+
+    .counter h3 {
+        font-size: 50px;
+    }
+}
+
+@media (max-width: 1400px) {
+    html {
+        scroll-padding-top: 92px;
+    }
+
+    .section-title {
+        font-size: 40px;
+    }
+
+    .outer-gap {
+        margin: 70px 0;
+    }
+
+    #navbar-right .navbar-nav .nav-link {
+        font-size: 16px;
+    }
+
+    p {
+        font-size: 18px;
+    }
+
+    .title-group {
+        margin-bottom: 40px;
+    }
+
+    .inner-gap {
+        padding: 120px 0;
+    }
+
+    header .primary-btn {
+        font-size: 20px;
+        padding: 10px 24px;
+    }
+
+}
+
+@media (max-width: 1199px) {
+    .title-group {
+        margin-bottom: 30px;
+    }
+
+    .inner-gap {
+        padding: 80px 0;
+    }
+
+    .section-title {
+        font-size: 36px;
+    }
+
+    #navbar-right .navbar-nav .nav-link {
+        padding: 10px;
+    }
+
+    header .primary-btn {
+        font-size: 20px;
+        padding: 10px 24px;
+    }
+
+    .banner {
+        padding: 100px 0;
+    }
+
+    .banner h1 {
+        font-size: 54px;
+    }
+
+    .about-left ul a img {
+        width: 50px;
+    }
+
+    .about-left h4 {
+        font-size: 24px;
+    }
+
+    .footer-top {
+        padding: 50px 0;
+    }
+
+    .buy-step {
+        margin-bottom: 14px;
+    }
+
+    .buy-card-in {
+        padding: 20px 24px 20px 50px;
+    }
+
+    .buy-card h3 {
+        font-size: 22px;
+    }
+
+    .buy-card {
+        padding-left: 50px;
+    }
+
+    .buy-img {
+        width: 100px;
+        height: 100px;
+    }
+
+    .buy-img img {
+        width: 50px;
+    }
+
+    .why-coin-card {
+        padding: 20px;
+    }
+
+    .why-coin-card h3 {
+        font-size: 24px;
+    }
+
+    .why-coin-card .why-coin-img img {
+        height: 70px;
+    }
+
+    .why-coin-card .description {
+        font-size: 16px;
+    }
+
+    .explore-card h3 {
+        font-size: 40px;
+    }
+}
+
+@media (max-width: 991px) {
+    #navbar-right .navbar-nav {
+        max-width: 960px;
+        margin: 0 auto;
+    }
+
+    #navbar-right .navbar-nav {
+        gap: 0;
+        max-width: 720px;
+    }
+
+    #navbar-right .navbar-nav .nav-link {
+        font-size: 18px;
+        padding: 8px 20px;
+    }
+
+    .navbar-collapse {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        background: var(--primary-clr);
+        width: 100%;
+        margin-top: 20px;
+    }
+
+    .navbar-collapse.show {
+        box-shadow: 0 2px 4px #ffffff6b;
+    }
+
+    .section-title {
+        font-size: 34px;
+    }
+
+    .outer-gap {
+        margin: 60px 0;
+    }
+
+    .title-group {
+        margin-bottom: 24px;
+    }
+
+    .banner h1 {
+        font-size: 50px;
+    }
+
+    .banner-elem img {
+        height: 320px;
+    }
+
+    .footer-top {
+        padding: 30px 0;
+    }
+
+    .footer-bottom {
+        padding: 20px 0;
+    }
+
+    .banner {
+        padding: 80px 0;
+    }
+
+    .banner p {
+        margin-bottom: 30px;
+    }
+
+    .primary-btn {
+        padding: 10px 26px;
+    }
+
+    .description {
+        font-size: 16px;
+    }
+
+    .explore-left {
+        text-align: center;
+    }
+}
+
+@media (max-width: 767px) {
+    #navbar-right .navbar-nav {
+        max-width: 540px;
+    }
+
+    .footer-logo img {
+        max-width: 160px;
+    }
+
+    .footer-menu li a {
+        font-size: 16px;
+    }
+
+    .primary-btn {
+        font-size: 16px;
+        padding: 10px 20px;
+        border-radius: 6px;
+    }
+
+    p {
+        font-size: 16px;
+    }
+
+    .outer-gap {
+        margin: 50px 0;
+    }
+
+    .banner {
+        padding: 60px 0;
+    }
+
+    .banner h1 {
+        font-size: 40px;
+    }
+
+    .banner p {
+        margin-bottom: 20px;
+    }
+
+    .footer-menu {
+        gap: 5px;
+    }
+
+    .inner-gap {
+        padding: 70px 0;
+    }
+
+    .footer-top {
+        padding: 40px 0;
+    }
+
+    .about-right {
+        text-align: center;
+    }
+
+    .counter h3 {
+        font-size: 40px;
+    }
+
+    .buy-card-in {
+        padding: 20px 14px 20px 40px;
+    }
+
+    .buy-img {
+        width: 80px;
+        height: 80px;
+        border: 6px solid #fff;
+        bottom: calc(100% - 100px);
+    }
+
+    .buy-step {
+        font-size: 20px;
+        margin-bottom: 6px;
+    }
+
+    .buy-img img {
+        width: 42px;
+    }
+
+    .buy-card {
+        padding-left: 40px;
+    }
+
+    .buy-card p {
+        font-size: 15px;
+    }
+
+    .buy-card h3 {
+        font-size: 20px;
+    }
+}
+
+@media (max-width: 576px) {
+    html {
+        scroll-padding-top: 85px;
+    }
+
+    #navbar-right .navbar-nav .nav-link {
+        font-size: 16px;
+    }
+
+    .description {
+        font-size: 16px;
+    }
+
+    header {
+        padding: 16px 0;
+    }
+
+    .navbar-collapse {
+        margin-top: 16px;
+    }
+
+    header .primary-btn {
+        font-size: 20px;
+        padding: 6px 14px;
+    }
+
+    .inner-gap {
+        padding: 40px 0;
+    }
+
+    .about-left h4 {
+        font-size: 18px;
+    }
+
+    .section-title {
+        font-size: 26px;
+    }
+
+    .why-coin-card {
+        padding: 20px;
+    }
+
+    .why-coin-card h3 {
+        font-size: 22px;
+    }
+
+    .why-coin-card .why-coin-img img {
+        height: 60px;
+    }
+
+    .banner {
+        padding: 40px 0;
+    }
+
+    .counter {
+        padding: 40px 0;
+    }
+
+    .footer-menu {
+        flex-direction: column;
+    }
+
+    .footer-top p {
+        margin-top: 30px;
+    }
+
+    .footer-bottom {
+        padding: 20px 0;
+    }
+
+    .footer-bottom p {
+        font-size: 14px;
+    }
+
+    .banner-elem img {
+        height: 240px;
+    }
+
+    .banner h1 {
+        margin-bottom: 20px;
+    }
+
+    .navbar-brand img {
+        width: 190px;
+    }
+
+    .counter h3 {
+        font-size: 40px;
+    }
+
+
+    .explore-card h3 {
+        font-size: 38px;
+    }
+}
+
+@media (max-width: 440px) {
+    html {
+        scroll-padding-top: 77px;
+    }
+
+    .banner h1 {
+        font-size: 28px;
+        margin-bottom: 12px;
+    }
+
+    .navbar-brand img {
+        width: 160px;
+    }
+
+    .explore-card-wrapper {
+        max-width: 260px;
+    }
+}
